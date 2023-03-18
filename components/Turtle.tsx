@@ -1,4 +1,10 @@
-import { useGLTF, Center, useAnimations, Environment } from '@react-three/drei';
+import {
+  useGLTF,
+  Center,
+  useAnimations,
+  Environment,
+  OrbitControls,
+} from '@react-three/drei';
 import React, { useEffect, useRef } from 'react';
 
 function Turtle() {
@@ -11,12 +17,11 @@ function Turtle() {
   return (
     <>
       <ambientLight />
+      <OrbitControls />
       <Environment background files={'/bg.hdr'} />
-      <Center>
-        <group ref={ref} scale={1.5} rotation={[0, 0, 0]}>
-          <primitive object={avatar.scene} />
-        </group>
-      </Center>
+      <group ref={ref} scale={1.5} rotation={[0, 0, 0]}>
+        <primitive object={avatar.scene} />
+      </group>
     </>
   );
 }
