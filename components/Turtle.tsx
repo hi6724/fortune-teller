@@ -1,21 +1,19 @@
-import { useGLTF, Center } from '@react-three/drei';
-import { useAnimations } from '@react-three/drei';
-import { Environment } from '@react-three/drei/core';
+import { useGLTF, Center, useAnimations, Environment } from '@react-three/drei';
 import React, { useEffect, useRef } from 'react';
-import { degToRad } from 'three/src/math/MathUtils';
 
 function Turtle() {
   const ref = useRef<any>();
   const avatar = useGLTF('/turtle.glb');
-  const { actions } = useAnimations(avatar.animations, ref);
+  const { actions } = useAnimations(avatar?.animations, ref);
   useEffect(() => {
     actions['Swim Cycle']?.play();
   }, []);
   return (
     <>
       <ambientLight />
+      <Environment background files={'/bg.hdr'} />
       <Center>
-        <group ref={ref} scale={1.5} rotation={[0, degToRad(0), 0]}>
+        <group ref={ref} scale={1.5} rotation={[0, 0, 0]}>
           <primitive object={avatar.scene} />
         </group>
       </Center>

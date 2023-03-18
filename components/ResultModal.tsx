@@ -8,10 +8,8 @@ function ResultModal() {
   const [open, setOpen] = useRecoilState(modalAtom);
   const result = useRecoilValue(resultAtom);
   return (
-    <Modal title='Basic Modal' open={open} onCancel={() => setOpen(false)}>
+    <Modal title='오늘의 운세' open={open} onCancel={() => setOpen(false)}>
       <p>{result?.text}</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
     </Modal>
   );
 }
