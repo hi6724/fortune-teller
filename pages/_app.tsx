@@ -6,7 +6,7 @@ import openAiAtom from '../atoms/openai';
 
 const configuration = new Configuration({
   organization: 'org-3Fl56tEsfLxfA1Wb5h5byRvf',
-  apiKey: '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',
+  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
   username: 'hunmok',
 });
 const openai = new OpenAIApi(configuration);
