@@ -9,11 +9,10 @@ function Mbti() {
   const router = useRouter();
   const [progressData, setProgress] = useRecoilState(progressAtom);
   useEffect(() => {
-    // if (progressData.gender === '') router.replace('/');
+    if (progressData.gender === '') router.replace('/');
     setProgress({ ...progressData, progress: 2 });
   }, []);
 
-  console.log(progressData);
   const handleClick = (mbti: string) => () => {
     setProgress({ ...progressData, mbti });
     router.push('/birthday');

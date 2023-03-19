@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { atom } from 'recoil';
 
 const progressAtom = atom({
@@ -6,7 +7,7 @@ const progressAtom = atom({
     progress: 0,
     gender: '',
     mbti: '',
-    birthday: '',
+    birthday: dayjs('1996-01-01'),
     type: '',
     typeStatus: '',
   },

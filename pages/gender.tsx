@@ -10,16 +10,31 @@ function Gender() {
   useEffect(() => {
     setProgress({ ...progressData, progress: 1 });
   }, []);
-  
+
   const handleClick = (gender: string) => () => {
     setProgress({ ...progressData, gender });
     router.push('/mbti');
   };
   return (
     <div>
-      <Button onClick={handleClick('남자')}>남자</Button>
-      <Button onClick={handleClick('여자')}>여자</Button>
-      <Button onClick={handleClick('선택안함')}>선택안함</Button>
+      <Button
+        type={progressData.gender === '남자' ? 'primary' : 'default'}
+        onClick={handleClick('남자')}
+      >
+        남자
+      </Button>
+      <Button
+        type={progressData.gender === '여자' ? 'primary' : 'default'}
+        onClick={handleClick('여자')}
+      >
+        여자
+      </Button>
+      <Button
+        type={progressData.gender === '선택안함' ? 'primary' : 'default'}
+        onClick={handleClick('선택안함')}
+      >
+        선택안함
+      </Button>
     </div>
   );
 }
