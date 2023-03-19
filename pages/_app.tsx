@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 import { Configuration, OpenAIApi } from 'openai';
 import openAiAtom from '../atoms/openai';
+import Navbar from '../components/Navbar';
 
 const configuration = new Configuration({
   organization: 'org-3Fl56tEsfLxfA1Wb5h5byRvf',
@@ -18,7 +19,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         set(openAiAtom, openai);
       }}
     >
-      <Component {...pageProps} />
+      <div>
+        <Navbar />
+        <Component {...pageProps} />
+      </div>
     </RecoilRoot>
   );
 }
