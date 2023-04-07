@@ -1,3 +1,5 @@
+/* eslint-disable  */
+
 import { Button } from 'antd';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';

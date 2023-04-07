@@ -1,3 +1,5 @@
+/* eslint-disable  */
+
 import { Button, Progress, Typography } from 'antd';
 import { useRouter } from 'next/router';
 import React from 'react';

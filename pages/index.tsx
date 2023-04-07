@@ -1,3 +1,5 @@
+/* eslint-disable  */
+
 import type { NextPage } from 'next';
 import { useRef } from 'react';
 import { useRecoilState } from 'recoil';

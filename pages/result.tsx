@@ -14,12 +14,13 @@ import {
 } from '../utils';
 import { TYPE_COLORS } from '../utils';
 import { TYPE_MAP } from '../utils';
+import resultDefault from '../assets/result.png';
 import health from '../assets/results/health.png';
 import love from '../assets/results/love.png';
 import money from '../assets/results/money.png';
 
 function ResultPage() {
-  const resultImages = [love, money, health];
+  const resultImages = [love.src, money.src, health.src];
   const result = useRecoilValue(resultAtom);
   const { birthday, gender, mbti, type, typeStatus } =
     useRecoilValue(progressAtom);
@@ -33,7 +34,14 @@ function ResultPage() {
         }}
       >
         <h3 style={{ color: TYPE_COLORS[TYPE_MAP[type]] }}>{type}꼬부기</h3>
-        <MyImage src={resultImages[TYPE_MAP[type]].src} alt='' />
+        <MyImage
+          src={
+            TYPE_MAP[type] < 3
+              ? resultImages[TYPE_MAP[type]]
+              : resultDefault.src
+          }
+          alt=''
+        />
       </div>
       <div>
         <Title>당신의 운세</Title>

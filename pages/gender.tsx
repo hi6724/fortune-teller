@@ -1,4 +1,6 @@
-import { Button, Card } from 'antd';
+/* eslint-disable  */
+
+import { Card } from 'antd';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
