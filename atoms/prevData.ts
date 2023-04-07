@@ -1,16 +1,20 @@
+import dayjs from 'dayjs';
 import { atom } from 'recoil';
 
-interface IData {
-  imgUrl: string;
-  text: string;
-  date: string;
-}
-interface IPrevData {
-  [key: string]: IData;
-}
-const prevDataAtom = atom<IPrevData>({
+const prevDataAtom = atom({
   key: 'prevDataAtom',
-  default: {},
+  default: {
+    result: '',
+    date: dayjs(),
+    params: {
+      progress: 0,
+      gender: '',
+      mbti: '',
+      birthday: dayjs(),
+      type: '',
+      typeStatus: '',
+    },
+  },
 });
 
 export default prevDataAtom;

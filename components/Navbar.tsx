@@ -13,7 +13,7 @@ function Navbar() {
   const { progress } = useRecoilValue(progressAtom);
   const router = useRouter();
   return (
-    <>
+    <div style={{ height: '10vh' }}>
       <div
         style={{
           display: 'flex',
@@ -51,7 +51,7 @@ function Navbar() {
           trailColor='rgba(0,0,0,0.4)'
         />
       </div>
-    </>
+    </div>
   );
 }
 

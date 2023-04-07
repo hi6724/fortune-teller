@@ -1,7 +1,7 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import resultAtom from '../atoms/result';
-import { Button, Result } from 'antd';
+import { Button } from 'antd';
 import styled from '@emotion/styled';
 import progressAtom from '../atoms/progress';
 import {
@@ -18,12 +18,23 @@ import resultDefault from '../assets/result.png';
 import health from '../assets/results/health.png';
 import love from '../assets/results/love.png';
 import money from '../assets/results/money.png';
+import { useRouter } from 'next/router';
+import prevDataAtom from '../atoms/prevData';
+import dayjs from 'dayjs';
 
 function ResultPage() {
   const resultImages = [love.src, money.src, health.src];
   const result = useRecoilValue(resultAtom);
   const { birthday, gender, mbti, type, typeStatus } =
     useRecoilValue(progressAtom);
+  const router = useRouter();
+  const { date } = useRecoilValue(prevDataAtom);
+
+  useEffect(() => {
+    if (!birthday || !gender || !mbti || !type || !typeStatus)
+      router.replace('/');
+  }, []);
+
   return (
     <Container>
       <div
@@ -33,6 +44,16 @@ function ResultPage() {
           alignItems: 'center',
         }}
       >
+        {dayjs().unix() - dayjs(date).unix() < 300 && (
+          <div style={{ paddingBottom: '1rem' }}>
+            <h2 style={{ paddingBottom: '8px' }}>
+              5분에 한번만 사용 가능합니다
+            </h2>
+            <h2>
+              다음 사용 가능 시간 {dayjs(date).add(5, 'minute').format('HH:mm')}
+            </h2>
+          </div>
+        )}
         <h3 style={{ color: TYPE_COLORS[TYPE_MAP[type]] }}>{type}꼬부기</h3>
         <MyImage
           src={
@@ -46,7 +67,12 @@ function ResultPage() {
       <div>
         <Title>당신의 운세</Title>
         <p
-          style={{ fontWeight: 100, lineHeight: '1.2rem', fontSize: '0.9rem' }}
+          style={{
+            fontWeight: 100,
+            lineHeight: '1.2rem',
+            fontSize: '0.9rem',
+            whiteSpace: 'break-spaces',
+          }}
         >
           {result}
         </p>
@@ -84,7 +110,7 @@ function ResultPage() {
           gap: '8px',
         }}
       >
-        <MyButton>다시하기</MyButton>
+        <MyButton onClick={() => router.push('/')}>다시하기</MyButton>
         <MyButton>공유하기</MyButton>
       </div>
     </Container>

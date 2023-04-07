@@ -6,6 +6,7 @@ import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import progressAtom from '../atoms/progress';
 import { colors } from '../utils';
+import { female, male, no_gender } from '../assets/gender/index';
 
 function Gender() {
   const router = useRouter();
@@ -55,12 +56,7 @@ function Gender() {
             background: colors.green,
             border: 'none',
           }}
-          cover={
-            <img
-              alt='example'
-              src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
-            />
-          }
+          cover={<img alt='example' src={male.src} />}
         >
           <Card.Meta title='남자' />
         </Card>
@@ -74,12 +70,7 @@ function Gender() {
                 : '',
           }}
           bodyStyle={{ padding: '4px' }}
-          cover={
-            <img
-              alt='example'
-              src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
-            />
-          }
+          cover={<img alt='example' src={female.src} />}
         >
           <Card.Meta title='여자' />
         </Card>
@@ -93,12 +84,7 @@ function Gender() {
                 : '',
           }}
           bodyStyle={{ padding: '4px' }}
-          cover={
-            <img
-              alt='example'
-              src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
-            />
-          }
+          cover={<img alt='example' src={no_gender.src} />}
         >
           <Card.Meta title='선택안함' />
         </Card>

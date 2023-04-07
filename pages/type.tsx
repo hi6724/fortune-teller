@@ -11,6 +11,8 @@ import styled from '@emotion/styled';
 import { TYPE_COLORS, TYPE_MAP, colors, simpleShadow } from '../utils';
 import axios from 'axios';
 import resultAtom from '../atoms/result';
+import prevDataAtom from '../atoms/prevData';
+import dayjs from 'dayjs';
 
 function Type() {
   const [api, contextHolder] = notification.useNotification();
@@ -26,6 +28,7 @@ function Type() {
 
   const router = useRouter();
   const [progressData, setProgress] = useRecoilState(progressAtom);
+  const [prevData, setPrevData] = useRecoilState(prevDataAtom);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     if (progressData.mbti === '') router.replace('/mbti');
@@ -39,6 +42,14 @@ function Type() {
     }
     if (loading) return;
     setLoading(true);
+
+    if (prevData.result) {
+      setResult(prevData.result);
+      setProgress(prevData.params);
+      router.push('/result');
+      return;
+    }
+
     const data = {
       gender: progressData.gender,
       mbti: progressData.mbti,
@@ -49,10 +60,16 @@ function Type() {
       detail_type: progressData.typeStatus,
     };
 
-    const { data: result } = await axios.post(
-      'https://ggobukine.onrender.com',
-      data
+    // const { data: result } = await axios.post(
+    //   'https://ggobukine.onrender.com',
+    //   data
+    // );
+    const result = '리절트';
+    localStorage.setItem(
+      'ggobukine',
+      JSON.stringify({ result, date: dayjs(), params: progressData })
     );
+    setPrevData({ result, date: dayjs(), params: progressData });
     setResult(result);
     router.push('/result');
   };

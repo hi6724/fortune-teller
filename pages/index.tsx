@@ -2,7 +2,7 @@
 
 import type { NextPage } from 'next';
 import { useRef } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import progressAtom from '../atoms/progress';
 import { Button } from 'antd';
 import { useEffect } from 'react';
@@ -12,18 +12,51 @@ import { MotionCanvas, motion, LayoutCamera } from 'framer-motion-3d';
 import { OrbitControls, useGLTF, useAnimations } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { degToRad } from 'three/src/math/MathUtils';
+import prevDataAtom from '../atoms/prevData';
+import resultAtom from '../atoms/result';
+import dayjs from 'dayjs';
 
 const Home: NextPage = () => {
   const router = useRouter();
   const [progressData, setProgress] = useRecoilState(progressAtom);
+  const [prevData, setPrevData] = useRecoilState(prevDataAtom);
+  const setResult = useSetRecoilState(resultAtom);
 
   useEffect(() => {
+    const fromLocal = localStorage.getItem('ggobukine');
+    if (fromLocal) setPrevData(JSON.parse(fromLocal));
     setProgress({ ...progressData, progress: 0 });
   }, []);
+  const handleStart = () => {
+    if (!prevData.result) {
+      router.push('/gender');
+      return;
+    }
+    if (dayjs().unix() - dayjs(prevData.date).unix() < 300) {
+      setResult(prevData.result);
+      setProgress({ ...prevData.params, birthday: dayjs(prevData.date) });
+      router.push('/result');
+      return;
+    }
+    setPrevData({
+      result: '',
+      date: dayjs(),
+      params: {
+        progress: 0,
+        gender: '',
+        mbti: '',
+        birthday: dayjs(),
+        type: '',
+        typeStatus: '',
+      },
+    });
+    router.push('/gender');
+    console.log(dayjs().unix() - dayjs(prevData.date).unix());
+  };
 
   return (
-    <div>
-      <MotionCanvas style={{ height: '100vh' }}>
+    <div style={{ overflow: 'hidden' }}>
+      <MotionCanvas style={{ height: '90vh' }}>
         <ambientLight />
         <LayoutCamera animate={{ y: 8, z: 10 }} />
         <OrbitControls maxDistance={20} minDistance={5} />
@@ -47,7 +80,7 @@ const Home: NextPage = () => {
           border: 'none',
           borderRadius: '100rem',
         }}
-        onClick={() => router.push('/gender')}
+        onClick={handleStart}
       >
         <h1 style={{ textShadow: simpleShadow }}>시작하기</h1>
       </Button>
