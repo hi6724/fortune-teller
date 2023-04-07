@@ -6,23 +6,31 @@ import { HEALTH_STATUS } from '../../utils';
 
 function HealthTypes() {
   const [progressData, setProgress] = useRecoilState(progressAtom);
-
+  // #5EC0D9
   return (
-    <div>
-      {HEALTH_STATUS.map((healthStatus, i) => (
-        <Button
-          type={
-            progressData.typeStatus === healthStatus ? 'primary' : 'default'
-          }
-          onClick={() =>
-            setProgress({ ...progressData, typeStatus: healthStatus })
-          }
-          key={i}
-        >
-          {healthStatus}
-        </Button>
-      ))}
-    </div>
+    <>
+      {HEALTH_STATUS.map((healthStatus, i) => {
+        const selected = progressData.typeStatus === healthStatus;
+
+        return (
+          <Button
+            type={
+              progressData.typeStatus === healthStatus ? 'primary' : 'default'
+            }
+            onClick={() =>
+              setProgress({ ...progressData, typeStatus: healthStatus })
+            }
+            key={i}
+            style={{
+              color: selected ? '#fff' : '#5EC0D9',
+              backgroundColor: selected ? '#5EC0D9' : '#fff',
+            }}
+          >
+            {healthStatus}
+          </Button>
+        );
+      })}
+    </>
   );
 }
 

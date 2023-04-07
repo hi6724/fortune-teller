@@ -1,13 +1,8 @@
 import { atom } from 'recoil';
 
-interface IResult {
-  imgUrl: string;
-  text: string;
-}
-
-const resultAtom = atom<IResult | null>({
+const resultAtom = atom<string>({
   key: 'resultAtom',
-  default: null,
+  default: '',
 });
 
 export default resultAtom;

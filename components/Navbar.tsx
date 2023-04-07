@@ -5,6 +5,7 @@ import { useRecoilValue } from 'recoil';
 import progressAtom from '../atoms/progress';
 import { colors } from '../utils';
 import { LeftOutlined } from '@ant-design/icons';
+import logo from '../assets/hhhh.png';
 
 function Navbar() {
   const { progress } = useRecoilValue(progressAtom);
@@ -22,10 +23,23 @@ function Navbar() {
         <span onClick={() => router.back()}>
           <LeftOutlined style={{ fontSize: '1.2rem' }} />
         </span>
-        <h1 style={{ fontSize: '1.5rem', color: colors.yellow }}>꼬북이네</h1>
+        {/* <h1 style={{ fontSize: '1.5rem', color: colors.yellow }}>꼬북이네</h1> */}
+        <img
+          src={logo.src}
+          style={{ width: '13rem', objectFit: 'cover' }}
+          alt=''
+          onClick={() => router.push('/')}
+        />
         <div>{progress}/4</div>
       </div>
-      <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+      <div
+        style={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '1vh',
+        }}
+      >
         <Progress
           style={{ width: '90%' }}
           percent={(progress * 100) / 4}

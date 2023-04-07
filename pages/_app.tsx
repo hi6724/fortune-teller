@@ -22,10 +22,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     >
       <div
         style={{
-          background: colors.green,
+          background: '#233d66',
           width: '100vw',
           height: '100vh',
-          overflow: 'hidden',
+          overflowX: 'hidden',
           color: colors.yellow,
         }}
       >

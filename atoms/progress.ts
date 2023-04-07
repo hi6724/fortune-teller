@@ -7,7 +7,7 @@ const progressAtom = atom({
     progress: 0,
     gender: '',
     mbti: '',
-    birthday: dayjs('1996-01-01'),
+    birthday: dayjs('2000-01-01'),
     type: '',
     typeStatus: '',
   },

@@ -90,6 +90,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-family: 'ttangs';
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -127,6 +128,14 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 * {
   box-sizing: border-box;
+}
+@font-face {
+  font-family: 'ttangs';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2')
+    format('woff2');
+  font-weight: 700;
+  font-style: normal;
 }
