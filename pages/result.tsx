@@ -54,6 +54,14 @@ function ResultPage() {
             </h2>
           </div>
         )}
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
         <h3 style={{ color: TYPE_COLORS[TYPE_MAP[type]] }}>{type}꼬부기</h3>
         <MyImage
           src={
@@ -72,9 +80,10 @@ function ResultPage() {
             lineHeight: '1.2rem',
             fontSize: '0.9rem',
             whiteSpace: 'break-spaces',
+            wordBreak: 'keep-all',
           }}
         >
-          {result}
+          {result.trim()}
         </p>
       </div>
 

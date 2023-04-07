@@ -1,7 +1,7 @@
 /* eslint-disable  */
 
 import type { NextPage } from 'next';
-import { useRef } from 'react';
+import { Suspense, useRef } from 'react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import progressAtom from '../atoms/progress';
 import { Button } from 'antd';
@@ -9,8 +9,14 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { colors, simpleShadow } from '../utils';
 import { MotionCanvas, motion, LayoutCamera } from 'framer-motion-3d';
-import { OrbitControls, useGLTF, useAnimations } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
+import {
+  OrbitControls,
+  useGLTF,
+  useAnimations,
+  useProgress,
+  Html,
+} from '@react-three/drei';
+import { Canvas, useThree } from '@react-three/fiber';
 import { degToRad } from 'three/src/math/MathUtils';
 import prevDataAtom from '../atoms/prevData';
 import resultAtom from '../atoms/result';
@@ -56,14 +62,13 @@ const Home: NextPage = () => {
 
   return (
     <div style={{ overflow: 'hidden' }}>
-      <MotionCanvas style={{ height: 'calc(100vh - 8rem)' }}>
+      <Canvas style={{ height: 'calc(100vh - 8rem)' }}>
+        {/* <LayoutCamera animate={{ y: 8, z: 10 }} /> */}
         <ambientLight />
-        <LayoutCamera animate={{ y: 8, z: 10 }} />
         <OrbitControls maxDistance={20} minDistance={5} />
-        <Sea />
-      </MotionCanvas>
-      <Canvas style={{ display: 'none' }}>
-        <mesh></mesh>
+        <Suspense fallback={<Loader />}>
+          <Sea />
+        </Suspense>
       </Canvas>
       <Button
         style={{
@@ -92,6 +97,7 @@ export default Home;
 
 const Sea = () => {
   const ref = useRef<any>();
+  useThree(({ camera }) => camera.position.set(0, 4, 5));
 
   const { scene, animations } = useGLTF(
     'https://res.cloudinary.com/dohkkln9r/image/upload/v1680445479/sea.glb'
@@ -102,8 +108,13 @@ const Sea = () => {
   }, []);
 
   return (
-    <motion.group rotation={[0, degToRad(-135), 0]} ref={ref}>
+    <group rotation={[0, degToRad(-135), 0]} ref={ref}>
       <primitive object={scene} />
-    </motion.group>
+    </group>
   );
 };
+
+function Loader() {
+  const { active, progress, errors, item, loaded, total } = useProgress();
+  return <Html center>로딩중 {progress} %</Html>;
+}
