@@ -48,12 +48,11 @@ function Gender() {
             width: '30%',
             boxShadow:
               progressData.gender === '남자'
-                ? 'rgba(3, 102, 214, 1) 0px 0px 0px 4px'
+                ? 'rgba(3, 102, 214, 1) 0px 0px 0px 6px'
                 : '',
           }}
           bodyStyle={{
             padding: '4px',
-            background: colors.green,
             border: 'none',
           }}
           cover={<img alt='example' src={male.src} />}
@@ -66,7 +65,7 @@ function Gender() {
             width: '30%',
             boxShadow:
               progressData.gender === '여자'
-                ? 'rgba(3, 102, 214, 1) 0px 0px 0px 4px'
+                ? 'rgba(3, 102, 214, 1) 0px 0px 0px 6px'
                 : '',
           }}
           bodyStyle={{ padding: '4px' }}
@@ -80,7 +79,7 @@ function Gender() {
             width: '30%',
             boxShadow:
               progressData.gender === '선택안함'
-                ? 'rgba(3, 102, 214, 1) 0px 0px 0px 4px'
+                ? 'rgba(3, 102, 214, 1) 0px 0px 0px 6px'
                 : '',
           }}
           bodyStyle={{ padding: '4px' }}

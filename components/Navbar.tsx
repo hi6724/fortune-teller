@@ -13,7 +13,7 @@ function Navbar() {
   const { progress } = useRecoilValue(progressAtom);
   const router = useRouter();
   return (
-    <div style={{ height: '10vh' }}>
+    <div style={{ height: '8rem' }}>
       <div
         style={{
           display: 'flex',

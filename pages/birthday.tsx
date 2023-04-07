@@ -30,9 +30,8 @@ function Birthday() {
     });
     router.push('/type');
   };
-  console.log('여기', dayObj);
   return (
-    <div>
+    <div style={{ padding: '0 0 5rem 0' }}>
       <div style={{ padding: '1.5rem', position: 'relative' }}>
         <Title>생일을 알려주세요</Title>
         <img

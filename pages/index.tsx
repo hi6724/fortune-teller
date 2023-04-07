@@ -56,7 +56,7 @@ const Home: NextPage = () => {
 
   return (
     <div style={{ overflow: 'hidden' }}>
-      <MotionCanvas style={{ height: '90vh' }}>
+      <MotionCanvas style={{ height: 'calc(100vh - 8rem)' }}>
         <ambientLight />
         <LayoutCamera animate={{ y: 8, z: 10 }} />
         <OrbitControls maxDistance={20} minDistance={5} />
