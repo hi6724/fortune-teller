@@ -575,12 +575,20 @@
   "resolved" "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz"
   "version" "0.16.2"
 
-"@types/three@>=0.144.0":
-  "integrity" "sha512-fgNBm9LWc65ER/W0cvoXdC0iMy7Ke9e2CONmEr6Jt8sDSY3sw4DgOubZfmdZ747dkPhbQrgRQAWwDEr2S/7IEg=="
-  "resolved" "https://registry.npmjs.org/@types/three/-/three-0.149.0.tgz"
-  "version" "0.149.0"
+"@types/stats.js@*":
+  "integrity" "sha512-9w+a7bR8PeB0dCT/HBULU2fMqf6BAzvKbxFboYhmDtDkKPiyXYbjoe2auwsXlEFI7CFNMF1dCv3dFH5Poy9R1w=="
+  "resolved" "https://registry.npmjs.org/@types/stats.js/-/stats.js-0.17.0.tgz"
+  "version" "0.17.0"
+
+"@types/three@^0.150.1", "@types/three@>=0.144.0":
+  "integrity" "sha512-ZXS1M3brsfAAbTeeUEt0defPi98yWQuEyPBnvjEYY1dCEYfJnFaww0mYgRpJ9JVfmtwRxqISpVcv/g/0lMl1DQ=="
+  "resolved" "https://registry.npmjs.org/@types/three/-/three-0.150.1.tgz"
+  "version" "0.150.1"
   dependencies:
+    "@types/stats.js" "*"
     "@types/webxr" "*"
+    "fflate" "~0.6.9"
+    "lil-gui" "~0.17.0"
 
 "@types/webxr@*":
   "integrity" "sha512-xlFXPfgJR5vIuDefhaHuUM9uUgvPaXB6GKdXy2gdEh8gBWQZ2ul24AJz3foUd8NNKlSTQuWYJpCb1/pL81m1KQ=="
@@ -1498,7 +1506,7 @@
   dependencies:
     "reusify" "^1.0.4"
 
-"fflate@^0.6.9":
+"fflate@^0.6.9", "fflate@~0.6.9":
   "integrity" "sha512-IQrh3lEPM93wVCEczc9SaAOvkmcoQn/G8Bo1e8ZPlY3X3bnAxWaBdvTdvM1hP62iZp0BXWDy4vTAy4fF0+Dlpg=="
   "resolved" "https://registry.npmjs.org/fflate/-/fflate-0.6.10.tgz"
   "version" "0.6.10"
@@ -2100,6 +2108,11 @@
   dependencies:
     "prelude-ls" "^1.2.1"
     "type-check" "~0.4.0"
+
+"lil-gui@~0.17.0":
+  "integrity" "sha512-MVBHmgY+uEbmJNApAaPbtvNh1RCAeMnKym82SBjtp5rODTYKWtM+MXHCifLe2H2Ti1HuBGBtK/5SyG4ShQ3pUQ=="
+  "resolved" "https://registry.npmjs.org/lil-gui/-/lil-gui-0.17.0.tgz"
+  "version" "0.17.0"
 
 "lines-and-columns@^1.1.6":
   "integrity" "sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg=="
