@@ -10,7 +10,7 @@ function Gender() {
   const [progressData, setProgress] = useRecoilState(progressAtom);
   useEffect(() => {
     setProgress({ ...progressData, progress: 1 });
-  }, [progressData, setProgress]);
+  }, []);
 
   const handleClick = (gender: string) => () => {
     setProgress({ ...progressData, gender });
