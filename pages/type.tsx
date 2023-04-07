@@ -60,11 +60,10 @@ function Type() {
       detail_type: progressData.typeStatus,
     };
 
-    // const { data: result } = await axios.post(
-    //   'https://ggobukine.onrender.com',
-    //   data
-    // );
-    const result = '리절트';
+    const { data: result } = await axios.post(
+      'https://ggobukine.onrender.com',
+      data
+    );
     localStorage.setItem(
       'ggobukine',
       JSON.stringify({ result, date: dayjs(), params: progressData })
