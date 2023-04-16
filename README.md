@@ -3,7 +3,7 @@
 
 https://꼬북이네.com/
 
-
+<img align="center" width='300px' src="https://github.com/hi6724/fortune-teller/raw/main/assets/image.png" />
 
 
 ## 💜 프로젝트 진행 기간
