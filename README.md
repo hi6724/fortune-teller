@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center"> 꼬북이네 </h1>
+<br/>
 
-## Getting Started
+https://꼬북이네.com/
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 💜 프로젝트 진행 기간
+2023-03-18 ~ 2023-04-07 (2인)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 🎵 제작배경
+최근 chatGPT API를 사용한 프로젝트가 정말 많아서 저도 만들고 싶어서 만들었습니다!! 🍭
+chatGPT API를 사용해서 유저의 성별, mbti, 생일 그리고 궁금해하는 상태에 기반해서 운세를 알려주는 웹 서비스 🚀🚀
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## ✔ 주요 기술
+### BE
+- Flask
+- openai
 
-## Learn More
+### FE
+- Next.js
+- three.js
+- framer-motion
 
-To learn more about Next.js, take a look at the following resources:
+### 🌏배포
+프론트엔드는 vercel
+백엔드는 render 를 사용해서 배포중입니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Version
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2023.04.07 v0.0.0 : 모바일 화면만 제작, 공유하기 기능 
