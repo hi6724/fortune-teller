@@ -2,13 +2,12 @@
 
 import type { NextPage } from 'next';
 import { Suspense, useRef } from 'react';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import progressAtom from '../atoms/progress';
 import { Button } from 'antd';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { colors, simpleShadow } from '../utils';
-import { MotionCanvas, motion, LayoutCamera } from 'framer-motion-3d';
 import {
   OrbitControls,
   useGLTF,
