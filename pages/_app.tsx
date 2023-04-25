@@ -7,9 +7,7 @@ import { colors } from '../utils';
 import { useGLTF } from '@react-three/drei';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useGLTF.preload(
-    'https://res.cloudinary.com/dohkkln9r/image/upload/v1680445479/sea.glb'
-  );
+  useGLTF.preload('/sealife/scene.gltf');
   return (
     <RecoilRoot>
       <div

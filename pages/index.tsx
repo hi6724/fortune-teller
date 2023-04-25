@@ -99,9 +99,7 @@ const Sea = () => {
   const ref = useRef<any>();
   useThree(({ camera }) => camera.position.set(0, 4, 5));
 
-  const { scene, animations } = useGLTF(
-    'https://res.cloudinary.com/dohkkln9r/image/upload/v1680445479/sea.glb'
-  );
+  const { scene, animations } = useGLTF('/sealife/scene.gltf');
   const { actions } = useAnimations(animations, ref);
   useEffect(() => {
     actions['Animation']?.play();
