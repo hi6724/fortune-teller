@@ -73,7 +73,7 @@ function Type() {
     const openai = new OpenAIApi(configuration);
     const res = await openai.createCompletion({
       model: 'text-davinci-003',
-      prompt: `${data.detail_type} ${data.mbti}를 응원하는 짧은 한마디를 해줘.`,
+      prompt: `${data.detail_type} ${data.mbti}를 응원하는 짧은 한마디를 ${data.status_type}과 연관시켜서 해줘.`,
       max_tokens: 256,
       temperature: 0,
     });
