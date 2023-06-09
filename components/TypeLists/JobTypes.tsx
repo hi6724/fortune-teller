@@ -3,10 +3,11 @@ import React from 'react';
 import { useRecoilState } from 'recoil';
 import progressAtom from '../../atoms/progress';
 import { JOB_STATUS } from '../../utils';
+import { useMobile } from '../../hooks/useMobile';
 
 function JobTypes() {
   const [progressData, setProgress] = useRecoilState(progressAtom);
-
+  const isMobile = useMobile();
   return (
     <>
       {JOB_STATUS.map((jobStatus, i) => {
@@ -14,6 +15,7 @@ function JobTypes() {
 
         return (
           <Button
+            size={! isMobile ? 'large' : 'middle'}
             type={progressData.typeStatus === jobStatus ? 'primary' : 'default'}
             onClick={() =>
               setProgress({ ...progressData, typeStatus: jobStatus })

@@ -7,9 +7,12 @@ import { useRecoilState } from 'recoil';
 import progressAtom from '../atoms/progress';
 import { MBTI_LIST, MBTI_TYPES, MBTI_TYPES_COLORS, colors } from '../utils';
 import styled from '@emotion/styled';
+import { useMobile } from '../hooks/useMobile';
 
 function Mbti() {
   const router = useRouter();
+  const isMobile = useMobile();
+
   const [progressData, setProgress] = useRecoilState(progressAtom);
   useEffect(() => {
     if (progressData.gender === '') router.replace('/');
@@ -18,7 +21,7 @@ function Mbti() {
 
   const handleClick = (mbti: string) => () => {
     setProgress({ ...progressData, mbti });
-    router.push('/birthday');
+    router.push('/type');
   };
   return (
     <div>
@@ -60,6 +63,7 @@ function Mbti() {
                   {MBTI_TYPES[mbtiType - 1]}
                 </h1>
                 <Button
+                  size={isMobile ? 'middle' : 'large'}
                   onClick={handleClick(mbti)}
                   value={mbti}
                   type={progressData.mbti === mbti ? 'primary' : 'default'}
@@ -73,6 +77,7 @@ function Mbti() {
           return (
             <>
               <Button
+                size={isMobile ? 'middle' : 'large'}
                 onClick={handleClick(mbti)}
                 value={mbti}
                 type={progressData.mbti === mbti ? 'primary' : 'default'}

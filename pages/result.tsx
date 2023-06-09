@@ -101,9 +101,9 @@ function ResultPage() {
           <SelectCard color={GENDER_COLORS[GENDER_MAP[gender]]}>
             {gender}
           </SelectCard>
-          <SelectCard color={'#00BDFE'}>
+          {/* <SelectCard color={'#00BDFE'}>
             {birthday.format('YYYY-MM-DD')}
-          </SelectCard>
+          </SelectCard> */}
           <SelectCard color={TYPE_COLORS[TYPE_MAP[type]]}>
             {typeStatus}
           </SelectCard>

@@ -7,9 +7,12 @@ import { useRecoilState } from 'recoil';
 import progressAtom from '../atoms/progress';
 import { colors } from '../utils';
 import { female, male, no_gender } from '../assets/gender/index';
+import { useMobile } from '../hooks/useMobile';
 
 function Gender() {
   const router = useRouter();
+  const isMobile = useMobile();
+
   const [progressData, setProgress] = useRecoilState(progressAtom);
   useEffect(() => {
     setProgress({ ...progressData, progress: 1 });
@@ -20,7 +23,7 @@ function Gender() {
     router.push('/mbti');
   };
   return (
-    <div style={{ padding: '0 5vw' }}>
+    <div style={{ padding: isMobile ? '0 5vw' : '0 30px' }}>
       <h1
         style={{
           fontWeight: '600',

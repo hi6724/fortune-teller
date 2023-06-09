@@ -18,3 +18,4 @@ const prevDataAtom = atom({
 });
 
 export default prevDataAtom;
+

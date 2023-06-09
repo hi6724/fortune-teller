@@ -13,6 +13,8 @@ import axios from 'axios';
 import resultAtom from '../atoms/result';
 import prevDataAtom from '../atoms/prevData';
 import dayjs from 'dayjs';
+import { IScanData } from '../type';
+import { useMobile } from '../hooks/useMobile';
 
 function Type() {
   const [api, contextHolder] = notification.useNotification();
@@ -30,6 +32,8 @@ function Type() {
   const [progressData, setProgress] = useRecoilState(progressAtom);
   const [prevData, setPrevData] = useRecoilState(prevDataAtom);
   const [loading, setLoading] = useState(false);
+  const isMobile = useMobile();
+
   useEffect(() => {
     if (progressData.mbti === '') router.replace('/mbti');
     setProgress({ ...progressData, progress: 4 });
@@ -60,10 +64,7 @@ function Type() {
       detail_type: progressData.typeStatus,
     };
 
-    const { data: result } = await axios.post(
-      'https://ggobukine.onrender.com',
-      data
-    );
+    const { data: result } = await axios.post('/api/hello', data);
     localStorage.setItem(
       'ggobukine',
       JSON.stringify({ result, date: dayjs(), params: progressData })
@@ -75,7 +76,7 @@ function Type() {
   return (
     <>
       {loading && <LoadingContainer>LOADING...</LoadingContainer>}
-      <div style={{ padding: '0 5vw' }}>
+      <div style={{ padding: isMobile ? '0 5vw' : '0 30px' }}>
         <TypeContainer
           style={{ borderColor: TYPE_COLORS[TYPE_MAP[progressData.type]] }}
         >
@@ -83,6 +84,7 @@ function Type() {
             const selected = progressData.type === type;
             return (
               <Button
+                size='large'
                 type={selected ? 'primary' : 'default'}
                 onClick={() =>
                   setProgress({ ...progressData, type, typeStatus: '' })
@@ -113,13 +115,15 @@ function Type() {
           <Button
             style={{
               position: 'fixed',
-              bottom: '1.5rem',
-              left: '5vw',
+              bottom: '15vh',
+              right: isMobile ? '5vw' : '30px',
               width: '90vw',
-              height: '3rem',
+              maxWidth: '540px',
+              height: '10vh',
+              maxHeight: '82px',
               color: '#fff',
               fontWeight: '600',
-              fontSize: '1rem',
+              fontSize: '1.5rem',
               backgroundColor: colors.lightGreen,
               border: 'none',
               borderRadius: '100rem',

@@ -20,9 +20,11 @@ import { degToRad } from 'three/src/math/MathUtils';
 import prevDataAtom from '../atoms/prevData';
 import resultAtom from '../atoms/result';
 import dayjs from 'dayjs';
+import { useMobile } from '../hooks/useMobile';
 
 const Home: NextPage = () => {
   const router = useRouter();
+  const isMobile = useMobile();
   const [progressData, setProgress] = useRecoilState(progressAtom);
   const [prevData, setPrevData] = useRecoilState(prevDataAtom);
   const setResult = useSetRecoilState(resultAtom);
@@ -56,7 +58,6 @@ const Home: NextPage = () => {
       },
     });
     router.push('/gender');
-    console.log(dayjs().unix() - dayjs(prevData.date).unix());
   };
 
   return (
@@ -72,11 +73,13 @@ const Home: NextPage = () => {
       <Button
         style={{
           position: 'fixed',
-          bottom: '15vh',
-          left: '50%',
-          transform: 'translate(-50%,50%)',
+          bottom: isMobile ? '15vh' : '80px',
+          right: isMobile ? '5vw' : '30px',
           width: '90vw',
-          height: '15vw',
+          maxWidth: '540px',
+          height: '10vh',
+          maxHeight: '82px',
+
           color: '#fff',
           fontWeight: '600',
           fontSize: '1.5rem',

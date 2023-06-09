@@ -3,8 +3,10 @@ import React from 'react';
 import { useRecoilState } from 'recoil';
 import progressAtom from '../../atoms/progress';
 import { HEALTH_STATUS } from '../../utils';
+import { useMobile } from '../../hooks/useMobile';
 
 function HealthTypes() {
+  const isMobile = useMobile();
   const [progressData, setProgress] = useRecoilState(progressAtom);
   // #5EC0D9
   return (
@@ -14,6 +16,7 @@ function HealthTypes() {
 
         return (
           <Button
+            size={!isMobile ? 'large' : 'middle'}
             type={
               progressData.typeStatus === healthStatus ? 'primary' : 'default'
             }
