@@ -16,6 +16,12 @@ import dayjs from 'dayjs';
 import { IScanData } from '../type';
 import { useMobile } from '../hooks/useMobile';
 
+import { Configuration, OpenAIApi } from 'openai';
+const configuration = new Configuration({
+  organization: 'org-76QP5sXmWL0aWRoff1z5kwaW',
+  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+});
+
 function Type() {
   const [api, contextHolder] = notification.useNotification();
   const setResult = useSetRecoilState(resultAtom);
@@ -64,7 +70,16 @@ function Type() {
       detail_type: progressData.typeStatus,
     };
 
-    const { data: result } = await axios.post('/api/hello', data);
+    const openai = new OpenAIApi(configuration);
+    const res = await openai.createCompletion({
+      model: 'text-davinci-003',
+      prompt: `${data.detail_type} ${data.mbti}를 응원하는 짧은 한마디를 해줘.`,
+      max_tokens: 256,
+      temperature: 0,
+    });
+
+    const result = res.data.choices[0].text ?? '';
+
     localStorage.setItem(
       'ggobukine',
       JSON.stringify({ result, date: dayjs(), params: progressData })
