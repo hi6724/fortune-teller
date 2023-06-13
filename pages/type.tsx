@@ -17,6 +17,7 @@ import { IScanData } from '../type';
 import { useMobile } from '../hooks/useMobile';
 import { Configuration, OpenAIApi } from 'openai';
 import { fetchCheeringFromGPT, genImageByText } from '../api/apiServices';
+import LottieTurtle from '../components/LottieTurtle';
 
 function Type() {
   const [api, contextHolder] = notification.useNotification();
@@ -88,7 +89,12 @@ function Type() {
   };
   return (
     <>
-      {loading && <LoadingContainer>LOADING...</LoadingContainer>}
+      {loading && (
+        <LoadingContainer>
+          <LottieTurtle />
+          <h1>AI가 꼬북이를 만들고 있어요</h1>
+        </LoadingContainer>
+      )}
       <div style={{ padding: isMobile ? '0 5vw' : '0 30px' }}>
         <TypeContainer
           style={{ borderColor: TYPE_COLORS[TYPE_MAP[progressData.type]] }}
@@ -169,6 +175,7 @@ const StatusContainer = styled.div`
 `;
 const LoadingContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;

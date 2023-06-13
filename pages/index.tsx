@@ -21,6 +21,7 @@ import prevDataAtom from '../atoms/prevData';
 import resultAtom from '../atoms/result';
 import dayjs from 'dayjs';
 import { useMobile } from '../hooks/useMobile';
+import LottieTurtle from '../components/LottieTurtle';
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -63,14 +64,8 @@ const Home: NextPage = () => {
 
   return (
     <div style={{ overflow: 'hidden' }}>
-      <Canvas style={{ height: 'calc(100vh - 8rem)' }}>
-        {/* <LayoutCamera animate={{ y: 8, z: 10 }} /> */}
-        <ambientLight />
-        <OrbitControls maxDistance={20} minDistance={5} />
-        <Suspense fallback={<Loader />}>
-          <Sea />
-        </Suspense>
-      </Canvas>
+      <LottieTurtle />
+
       <Button
         style={{
           position: 'fixed',
