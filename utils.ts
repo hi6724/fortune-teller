@@ -24,6 +24,7 @@ export const MBTI_LIST = [
 ];
 
 export const MBTI_TYPES = ['분석가형', '외교관형', '관리자형', '탐험가형'];
+
 export const MBTI_TYPES_COLORS = [
   '#90759F',
   '#71C8A6',
@@ -33,38 +34,40 @@ export const MBTI_TYPES_COLORS = [
 ];
 
 export const LOVE_STATUS = [
-  '싸운',
-  '사귄지 얼마 안된',
-  '짝사랑중인',
-  '연애상대 찾는중인',
-  '복잡한',
-  '얼마전에 헤어진',
-  '약혼한',
-  '결혼한',
-  '사귀는중인',
+  { eng: 'sea turtle with heart-shaped pillow', korean: '최근에 싸운' },
+  { eng: 'sea turtle with heart-shaped pillow', korean: '사귄지 얼마 안된' },
+  { eng: 'sea turtle with heart-shaped pillow', korean: '짝사랑중인' },
+  { eng: 'sea turtle with heart-shaped pillow', korean: '연애상대 찾는중인' },
+  { eng: 'sea turtle with heart-shaped pillow', korean: '복잡한' },
+  { eng: 'sea turtle with heart-shaped pillow', korean: '최근에 헤어진' },
+  { eng: 'sea turtle with heart-shaped pillow', korean: '결혼 준비중인' },
+  { eng: 'sea turtle with heart-shaped pillow', korean: '결혼한' },
+  { eng: 'sea turtle with heart-shaped pillow', korean: '사귀는중인' },
 ];
+
 export const JOB_STATUS = [
-  '코테를 자꾸 떨어지는',
-  '서류를 자꾸 떨어지는',
-  '면접에서 자꾸 떨어지는',
-  '지원안한',
-  '지원하기 싫은',
-  '현 직장에 불만족인',
-  '결과 기다리는',
-  '이직하고 싶은',
-  '연봉이 너무 낮은',
-  '현 상태에 만족중인',
+  { eng: 'sea turtle wearing suit and necktie', korean: '코테를 떨어지는' },
+  { eng: 'sea turtle wearing suit and necktie', korean: '서류를 떨어지는' },
+  { eng: 'sea turtle wearing suit and necktie', korean: '면접에서 떨어지는' },
+  { eng: 'sea turtle wearing suit and necktie', korean: '지원하기 싫은' },
+  { eng: 'sea turtle wearing suit and necktie', korean: '직장에 불만족인' },
+  { eng: 'sea turtle wearing suit and necktie', korean: '결과 기다리는' },
+  { eng: 'sea turtle wearing suit and necktie', korean: '이직하고 싶은' },
+  { eng: 'sea turtle wearing suit and necktie', korean: '연봉이 너무 낮은' },
+  { eng: 'sea turtle wearing suit and necktie', korean: '직장에 만족한' },
 ];
+
 export const HEALTH_STATUS = [
-  '건강함',
-  '눈이 피로한',
-  '손목이 아픈',
-  '허리가 아픈',
-  '머리가 아픈',
-  '소화불량인',
-  '정신적으로 힘든',
-  '행복한',
+  { eng: 'sea turtle working out at the gym', korean: '건강한' },
+  { eng: 'sea turtle working out at the gym', korean: '눈이 피로한' },
+  { eng: 'sea turtle working out at the gym', korean: '손목이 아픈' },
+  { eng: 'sea turtle working out at the gym', korean: '허리가 아픈' },
+  { eng: 'sea turtle working out at the gym', korean: '머리가 아픈' },
+  { eng: 'sea turtle working out at the gym', korean: '소화불량인' },
+  { eng: 'sea turtle working out at the gym', korean: '정신적으로 힘든' },
+  { eng: 'sea turtle working out at the gym', korean: '행복한' },
 ];
+
 export const colors = {
   yellow: '#f2e6c4',
   deepYellow: '#D0b894',

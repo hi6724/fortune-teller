@@ -10,6 +10,7 @@ const progressAtom = atom({
     birthday: dayjs('2000-01-01'),
     type: '',
     typeStatus: '',
+    engTypeStatus: '',
   },
 });
 

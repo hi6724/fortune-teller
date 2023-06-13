@@ -29,11 +29,12 @@ function ResultPage() {
     useRecoilValue(progressAtom);
   const router = useRouter();
   const { date } = useRecoilValue(prevDataAtom);
+  console.log(result.image);
 
   useEffect(() => {
     if (!birthday || !gender || !mbti || !type || !typeStatus)
       router.replace('/');
-  }, []);
+  }, [birthday, gender, mbti, router, type, typeStatus]);
 
   return (
     <Container>
@@ -62,29 +63,31 @@ function ResultPage() {
           alignItems: 'center',
         }}
       >
-        <h3 style={{ color: TYPE_COLORS[TYPE_MAP[type]] }}>{type}꼬부기</h3>
+        <div>
+          <p
+            style={{
+              fontWeight: 100,
+              lineHeight: '1.5rem',
+              fontSize: '1.2rem',
+              whiteSpace: 'break-spaces',
+              wordBreak: 'keep-all',
+              marginBottom: '2rem',
+            }}
+          >
+            {result.text?.trim()}
+          </p>
+        </div>
+
         <MyImage
           src={
-            TYPE_MAP[type] < 3
+            result.image
+              ? `data:image/png;base64,${result.image}`
+              : TYPE_MAP[type] < 3
               ? resultImages[TYPE_MAP[type]]
               : resultDefault.src
           }
           alt=''
         />
-      </div>
-      <div>
-        <Title>당신의 운세</Title>
-        <p
-          style={{
-            fontWeight: 100,
-            lineHeight: '1.2rem',
-            fontSize: '0.9rem',
-            whiteSpace: 'break-spaces',
-            wordBreak: 'keep-all',
-          }}
-        >
-          {result.trim()}
-        </p>
       </div>
 
       <div>
@@ -156,7 +159,8 @@ const Title = styled.h1`
   margin-bottom: 1rem;
 `;
 const MyImage = styled.img`
-  height: 25vh;
+  width: 100%;
+  object-fit: contain;
 `;
 const MyButton = styled(Button)`
   display: flex;

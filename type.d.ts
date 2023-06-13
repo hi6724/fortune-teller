@@ -6,4 +6,5 @@ export interface IScanData {
   birth_day: String;
   status_type: String;
   detail_type: String;
+  status_eng: String;
 }

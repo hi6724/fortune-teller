@@ -10,14 +10,18 @@ function LoveTypes() {
   const isMobile = useMobile();
   return (
     <>
-      {LOVE_STATUS.map((loveStatus, i) => {
-        const selected = progressData.typeStatus === loveStatus;
+      {LOVE_STATUS.map(({ korean, eng }, i) => {
+        const selected = progressData.typeStatus === korean;
         return (
           <Button
             size={!isMobile ? 'large' : 'middle'}
             type={selected ? 'primary' : 'default'}
             onClick={() =>
-              setProgress({ ...progressData, typeStatus: loveStatus })
+              setProgress({
+                ...progressData,
+                typeStatus: korean,
+                engTypeStatus: eng,
+              })
             }
             key={i}
             style={{
@@ -25,7 +29,7 @@ function LoveTypes() {
               backgroundColor: selected ? '#ff91a4' : '#fff',
             }}
           >
-            {loveStatus}
+            {korean}
           </Button>
         );
       })}

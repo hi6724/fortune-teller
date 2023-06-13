@@ -11,17 +11,19 @@ function HealthTypes() {
   // #5EC0D9
   return (
     <>
-      {HEALTH_STATUS.map((healthStatus, i) => {
-        const selected = progressData.typeStatus === healthStatus;
+      {HEALTH_STATUS.map(({ korean, eng }, i) => {
+        const selected = progressData.typeStatus === korean;
 
         return (
           <Button
             size={!isMobile ? 'large' : 'middle'}
-            type={
-              progressData.typeStatus === healthStatus ? 'primary' : 'default'
-            }
+            type={progressData.typeStatus === korean ? 'primary' : 'default'}
             onClick={() =>
-              setProgress({ ...progressData, typeStatus: healthStatus })
+              setProgress({
+                ...progressData,
+                typeStatus: korean,
+                engTypeStatus: eng,
+              })
             }
             key={i}
             style={{
@@ -29,7 +31,7 @@ function HealthTypes() {
               backgroundColor: selected ? '#5EC0D9' : '#fff',
             }}
           >
-            {healthStatus}
+            {korean}
           </Button>
         );
       })}

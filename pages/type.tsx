@@ -15,12 +15,8 @@ import prevDataAtom from '../atoms/prevData';
 import dayjs from 'dayjs';
 import { IScanData } from '../type';
 import { useMobile } from '../hooks/useMobile';
-
 import { Configuration, OpenAIApi } from 'openai';
-const configuration = new Configuration({
-  organization: 'org-76QP5sXmWL0aWRoff1z5kwaW',
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
-});
+import { fetchCheeringFromGPT, genImageByText } from '../api/apiServices';
 
 function Type() {
   const [api, contextHolder] = notification.useNotification();
@@ -68,17 +64,18 @@ function Type() {
       birth_day: progressData.birthday.date() + '',
       status_type: progressData.type,
       detail_type: progressData.typeStatus,
+      status_eng: progressData.engTypeStatus,
     };
 
-    const openai = new OpenAIApi(configuration);
-    const res = await openai.createCompletion({
-      model: 'text-davinci-003',
-      prompt: `${data.detail_type} ${data.mbti}를 응원하는 짧은 한마디를 ${data.status_type}과 연관시켜서 해줘.`,
-      max_tokens: 256,
-      temperature: 0,
-    });
-
-    const result = res.data.choices[0].text ?? '';
+    const [res, image] = await Promise.all([
+      fetchCheeringFromGPT(data),
+      genImageByText(data),
+    ]);
+    
+    const result = {
+      text: res.data.choices[0].text ?? '',
+      image: image?.data.artifacts[0].base64,
+    };
 
     localStorage.setItem(
       'ggobukine',

@@ -10,15 +10,19 @@ function JobTypes() {
   const isMobile = useMobile();
   return (
     <>
-      {JOB_STATUS.map((jobStatus, i) => {
-        const selected = progressData.typeStatus === jobStatus;
+      {JOB_STATUS.map(({ korean, eng }, i) => {
+        const selected = progressData.typeStatus === korean;
 
         return (
           <Button
-            size={! isMobile ? 'large' : 'middle'}
-            type={progressData.typeStatus === jobStatus ? 'primary' : 'default'}
+            size={!isMobile ? 'large' : 'middle'}
+            type={progressData.typeStatus === korean ? 'primary' : 'default'}
             onClick={() =>
-              setProgress({ ...progressData, typeStatus: jobStatus })
+              setProgress({
+                ...progressData,
+                typeStatus: korean,
+                engTypeStatus: eng,
+              })
             }
             key={i}
             style={{
@@ -27,7 +31,7 @@ function JobTypes() {
               backgroundColor: selected ? '#71C8A6' : '#fff',
             }}
           >
-            {jobStatus}
+            {korean}
           </Button>
         );
       })}
