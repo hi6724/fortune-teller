@@ -34,38 +34,38 @@ export const MBTI_TYPES_COLORS = [
 ];
 
 export const LOVE_STATUS = [
-  { eng: 'sea turtle with heart-shaped pillow', korean: '최근에 싸운' },
-  { eng: 'sea turtle with heart-shaped pillow', korean: '사귄지 얼마 안된' },
-  { eng: 'sea turtle with heart-shaped pillow', korean: '짝사랑중인' },
-  { eng: 'sea turtle with heart-shaped pillow', korean: '연애상대 찾는중인' },
-  { eng: 'sea turtle with heart-shaped pillow', korean: '복잡한' },
-  { eng: 'sea turtle with heart-shaped pillow', korean: '최근에 헤어진' },
-  { eng: 'sea turtle with heart-shaped pillow', korean: '결혼 준비중인' },
-  { eng: 'sea turtle with heart-shaped pillow', korean: '결혼한' },
-  { eng: 'sea turtle with heart-shaped pillow', korean: '사귀는중인' },
+  { eng: 'cute sea turtle surrounded by heart', korean: '최근에 싸운' },
+  { eng: 'cute sea turtle surrounded by heart', korean: '사귄지 얼마 안된' },
+  { eng: 'cute sea turtle surrounded by heart', korean: '짝사랑중인' },
+  { eng: 'cute sea turtle surrounded by heart', korean: '연애상대 찾는중인' },
+  { eng: 'cute sea turtle surrounded by heart', korean: '복잡한' },
+  { eng: 'cute sea turtle surrounded by heart', korean: '최근에 헤어진' },
+  { eng: 'cute sea turtle surrounded by heart', korean: '결혼 준비중인' },
+  { eng: 'cute sea turtle surrounded by heart', korean: '결혼한' },
+  { eng: 'cute sea turtle surrounded by heart', korean: '사귀는중인' },
 ];
 
 export const JOB_STATUS = [
-  { eng: 'sea turtle wearing suit and necktie', korean: '코테를 떨어지는' },
-  { eng: 'sea turtle wearing suit and necktie', korean: '서류를 떨어지는' },
-  { eng: 'sea turtle wearing suit and necktie', korean: '면접에서 떨어지는' },
-  { eng: 'sea turtle wearing suit and necktie', korean: '지원하기 싫은' },
-  { eng: 'sea turtle wearing suit and necktie', korean: '직장에 불만족인' },
-  { eng: 'sea turtle wearing suit and necktie', korean: '결과 기다리는' },
-  { eng: 'sea turtle wearing suit and necktie', korean: '이직하고 싶은' },
-  { eng: 'sea turtle wearing suit and necktie', korean: '연봉이 너무 낮은' },
-  { eng: 'sea turtle wearing suit and necktie', korean: '직장에 만족한' },
+  { eng: 'cute sea turtle wearing graduation cap', korean: '코테를 떨어지는' },
+  { eng: 'cute sea turtle wearing graduation cap', korean: '서류를 떨어지는' },
+  { eng: 'cute sea turtle wearing graduation cap', korean: '면접을 떨어진' },
+  { eng: 'cute sea turtle wearing graduation cap', korean: '지원하기 싫은' },
+  { eng: 'cute sea turtle wearing graduation cap', korean: '직장에 불만족인' },
+  { eng: 'cute sea turtle wearing graduation cap', korean: '결과 기다리는' },
+  { eng: 'cute sea turtle wearing graduation cap', korean: '이직하고 싶은' },
+  { eng: 'cute sea turtle wearing graduation cap', korean: '연봉이 너무 낮은' },
+  { eng: 'cute sea turtle wearing graduation cap', korean: '직장에 만족한' },
 ];
 
 export const HEALTH_STATUS = [
-  { eng: 'sea turtle working out at the gym', korean: '건강한' },
-  { eng: 'sea turtle working out at the gym', korean: '눈이 피로한' },
-  { eng: 'sea turtle working out at the gym', korean: '손목이 아픈' },
-  { eng: 'sea turtle working out at the gym', korean: '허리가 아픈' },
-  { eng: 'sea turtle working out at the gym', korean: '머리가 아픈' },
-  { eng: 'sea turtle working out at the gym', korean: '소화불량인' },
-  { eng: 'sea turtle working out at the gym', korean: '정신적으로 힘든' },
-  { eng: 'sea turtle working out at the gym', korean: '행복한' },
+  { eng: 'swimming sea turtle under the sea', korean: '건강한' },
+  { eng: 'swimming sea turtle under the sea', korean: '눈이 피로한' },
+  { eng: 'swimming sea turtle under the sea', korean: '손목이 아픈' },
+  { eng: 'swimming sea turtle under the sea', korean: '허리가 아픈' },
+  { eng: 'swimming sea turtle under the sea', korean: '머리가 아픈' },
+  { eng: 'swimming sea turtle under the sea', korean: '소화불량인' },
+  { eng: 'swimming sea turtle under the sea', korean: '정신적으로 힘든' },
+  { eng: 'swimming sea turtle under the sea', korean: '행복한' },
 ];
 
 export const colors = {

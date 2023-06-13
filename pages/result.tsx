@@ -36,6 +36,49 @@ function ResultPage() {
       router.replace('/');
   }, [birthday, gender, mbti, router, type, typeStatus]);
 
+  const kakaoShare = async () => {
+    if (!window.Kakao.isInitialized()) {
+      window.Kakao.init(`${process.env.NEXT_PUBLIC_KAKAO_JS_KEY}`);
+    }
+
+    console.log('res::::::::');
+    // var img = await Buffer.from(result.image, 'base64');
+    var file;
+    await fetch(`data:image/png;base64,${result.image}`)
+      .then((res) => res.blob())
+      .then((blob) => {
+        file = new File([blob], 'File name', { type: 'image/png' });
+      });
+
+    const res = await window.Kakao.Share.uploadImage({
+      file: [file],
+    });
+
+    window.Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '🐢오늘의 운세🐢',
+        description: `${result.text}
+        #${mbti} #${gender} #${typeStatus}
+        `,
+        imageUrl: res.infos.original.url,
+        link: {
+          mobileWebUrl: 'https://developers.kakao.com',
+          webUrl: 'https://developers.kakao.com',
+        },
+      },
+      buttons: [
+        {
+          title: '테스트 하러 가기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+      ],
+    });
+  };
+
   return (
     <Container>
       <div
@@ -123,7 +166,7 @@ function ResultPage() {
         }}
       >
         <MyButton onClick={() => router.push('/')}>다시하기</MyButton>
-        <MyButton>공유하기</MyButton>
+        <MyButton onClick={kakaoShare}>공유하기</MyButton>
       </div>
     </Container>
   );

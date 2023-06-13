@@ -12,6 +12,7 @@ import GoogleAnalytics from '../components/GoogleAnalytics';
 function MyApp({ Component, pageProps }: AppProps) {
   useGLTF.preload('/sealife/scene.gltf');
   const isMobile = useMobile();
+
   return (
     <>
       <GoogleAnalytics />

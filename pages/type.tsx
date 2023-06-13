@@ -56,6 +56,7 @@ function Type() {
       return;
     }
 
+    console.log('Hello world2');
     const data = {
       gender: progressData.gender,
       mbti: progressData.mbti,
@@ -71,7 +72,7 @@ function Type() {
       fetchCheeringFromGPT(data),
       genImageByText(data),
     ]);
-    
+
     const result = {
       text: res.data.choices[0].text ?? '',
       image: image?.data.artifacts[0].base64,

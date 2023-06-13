@@ -10,14 +10,14 @@ export const genImageByText = async (data: IScanData): Promise<any> => {
   const res = axios.post(
     'https://api.stability.ai/v1/generation/stable-diffusion-xl-beta-v2-2-2/text-to-image',
     {
-      cfg_scale: 10,
       height: 512,
       width: 512,
       samples: 1,
-      steps: 75,
+      steps: 35,
+      style_preset: 'photographic',
       text_prompts: [
         {
-          text: `${data.status_eng}, unreal engine, super cute, masterpeace, artstation, detailed, design by mark ryden and pixar and hayao miyazaki, unreal 5`,
+          text: `${data.status_eng}`,
           weight: 1,
         },
       ],
