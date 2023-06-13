@@ -46,7 +46,7 @@ const Home: NextPage = () => {
       return;
     }
     setPrevData({
-      result: '',
+      result: null,
       date: dayjs(),
       params: {
         progress: 0,
@@ -55,6 +55,7 @@ const Home: NextPage = () => {
         birthday: dayjs(),
         type: '',
         typeStatus: '',
+        engTypeStatus: '',
       },
     });
     router.push('/gender');
